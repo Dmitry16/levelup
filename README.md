@@ -1,5 +1,42 @@
 # React + TypeScript + Vite
 
+## App Architecture
+
+src/
+ ├── core/                  # Core infrastructure (DI, Router, Store)
+ │    ├── bootstrap.ts      # Initializes plugins, DI, and store
+ │    ├── di/               # Dependency Injection System
+ │    │   ├── container.ts  # Tsyringe DI container
+ │    │   ├── decorators.ts # Custom decorators for DI (optional)
+ │    ├── router/           # Centralized Router
+ │    │   ├── index.ts      # AppRouter (React Router)
+ │    │   ├── routes.ts     # Route definitions
+ │    │   ├── ProtectedRoute.tsx # Guard for protected routes
+ │    ├── store/            # Redux Toolkit Store
+ │    │   ├── index.ts      # Redux store configuration
+ │    │   ├── api.ts        # RTK Query setup
+ │    │   ├── slices/       # Redux slices
+ │    │   │   ├── authSlice.ts
+ │    │   │   ├── userSlice.ts
+ ├── plugins/               # Feature Plugins (Lazy Loaded)
+ │    ├── relations/
+ │    │   ├── services/     # Local services for this plugin
+ │    │   ├── store/        # Local Redux store for this plugin
+ │    │   ├── components/   # UI components
+ │    │   ├── api.ts        # API endpoints for this module
+ │    │   ├── index.ts      # Plugin entry point
+ │    ├── finance/
+ │    ├── health/
+ ├── modules/               # Auth, Registration, etc.
+ │    ├── auth/             # Authentication module
+ │    ├── registration/     # Registration module
+ ├── lib/                   # Shared utilities and components
+ │    ├── hooks/            # Reusable hooks
+ │    ├── utils/            # Helper functions
+ │    ├── components/       # Shared UI components
+ ├── App.tsx                # Renders the main app
+ ├── main.tsx               # Entry point (loads DI & Router)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
