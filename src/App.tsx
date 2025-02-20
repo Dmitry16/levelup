@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import './App.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import CardComponent from "./lib/components/SampleComponent";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 
-function App() {
-  return (
-    <>
-      <h1>Vite + React</h1>
-    </>
-  )
-}
+const theme = createTheme();
 
-export default App
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <CardComponent />
+  </ThemeProvider>
+);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
+
+export default App;
