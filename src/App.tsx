@@ -1,18 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import CardComponent from "./lib/components/SampleComponent";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
+import { UIServiceProvider } from "./core/services/UIService";
+import Home from "./pages/Home";
 
-const theme = createTheme();
-
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <CardComponent />
-  </ThemeProvider>
-);
-
-ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
+const App = () => {
+  return (
+    <UIServiceProvider>
+      <Home />
+    </UIServiceProvider>
+  );
+};
 
 export default App;
