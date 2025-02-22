@@ -1,12 +1,9 @@
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { ReactNode } from "react";
-import theme from "../../lib/theme/theme";
+import { ReactNode } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from '../../lib/theme/theme';
 
-interface UIServiceProviderProps {
-  children: ReactNode;
-}
-
-export const UIServiceProvider = ({ children }: UIServiceProviderProps) => {
+export const UIServiceProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
